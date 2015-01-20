@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://connection" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://connection" xmlns:intf="http://connection" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://connection" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getcategories">
+    <complexType/>
+   </element>
+   <element name="getcategoriesResponse">
+    <complexType>
+     <sequence>
+      <element name="getcategoriesReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="setcategories">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setcategoriesResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getcategoriesResponse">
+
+      <wsdl:part element="impl:getcategoriesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setcategoriesResponse">
+
+      <wsdl:part element="impl:setcategoriesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setcategoriesRequest">
+
+      <wsdl:part element="impl:setcategories" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getcategoriesRequest">
+
+      <wsdl:part element="impl:getcategories" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="resultsBeans">
+
+      <wsdl:operation name="getcategories">
+
+         <wsdl:input message="impl:getcategoriesRequest" name="getcategoriesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getcategoriesResponse" name="getcategoriesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setcategories">
+
+         <wsdl:input message="impl:setcategoriesRequest" name="setcategoriesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setcategoriesResponse" name="setcategoriesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="resultsBeansSoapBinding" type="impl:resultsBeans">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getcategories">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getcategoriesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getcategoriesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setcategories">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setcategoriesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setcategoriesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="resultsBeansService">
+
+      <wsdl:port binding="impl:resultsBeansSoapBinding" name="resultsBeans">
+
+         <wsdlsoap:address location="http://localhost:8080/Ebay/services/resultsBeans"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
